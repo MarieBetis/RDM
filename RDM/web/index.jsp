@@ -47,20 +47,23 @@
                     <input type="submit" value="Rechercher">
                 </form> 
             </div>
-            <div id="annonces">
-             <h2>Annonces disponibles</h2>
-            <div classe ="blocs">
-            <div classe = "annonces">
-                <div class="dessin"></div>
-                <div class="dessin"></div>
-                <div class="dessin"></div>   
-            </div>
-            <div classe = "annonces">
-                <div class="dessin2"></div>
-                <div class="dessin2"></div>
-                <div class="dessin2"></div>
-            </div> 
-            </div>
+            <div id="annonces" align="center">
+                <h2>Annonces disponibles</h2>
+                <div classe ="blocs">
+                    <div classe = "annonces">
+                        <figure>
+  <img src="../images/interrogation.png" alt="" />
+  <figcaption>Légende associée</figcaption>
+</figure>
+                        <div class="dessin"></div> <span> sdf </span>
+                        <div class="dessin"></div> <span> sdf </span>  
+                    </div>
+                    <div classe = "annonces">
+                        <div class="dessin2"></div>
+                        <div class="dessin2"></div>
+                        <div class="dessin2"></div>
+                    </div> 
+                </div>
             </div>
          
            
