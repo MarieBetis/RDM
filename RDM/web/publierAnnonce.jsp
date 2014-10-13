@@ -6,10 +6,10 @@
 
 
 <%
-   // if (session.getAttribute("connecte")==null)// (session.getAttribute("hotelierConnecte")==null)
+    if (session.getAttribute("hotelierConnecte")==null)
     {
 %>
-      <%--    <jsp:forward page="login.jsp" />  vaut mieux avoir une page login différente pour chaque utilisateur  <jsp:forward page="loginHotelier.jsp" />       --%>
+      <jsp:forward page="loginHotelier.jsp" />     
 <%
     }
 %>
@@ -38,7 +38,7 @@
     <body>
       <div class="main">
             <div class="publication">
-                <h1>Publiez votre annonce</h1>  
+                <h2>Publiez votre annonce</h2>  
                 <form method="post" action="controleur.do" enctype="multipart/form-data">
                     <table>
 			<tr>

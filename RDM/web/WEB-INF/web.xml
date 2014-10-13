@@ -14,12 +14,26 @@
         <servlet-name>controleur</servlet-name>
         <servlet-class>com.rdm.controleur.ControleurFrontal</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>loginHotelier</servlet-name>
+        <servlet-class>com.rdm.servlets.LoginHotelier</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>loginConsommateur</servlet-name>
+        <servlet-class>com.rdm.servlets.LoginConsommateur</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controleur</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
-   
+    <servlet-mapping>
+        <servlet-name>loginHotelier</servlet-name>
+        <url-pattern>/signinHotelier</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loginConsommateur</servlet-name>
+        <url-pattern>/signinConsommateur</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
