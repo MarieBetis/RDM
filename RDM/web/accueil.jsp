@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 2014-10-07, 13:16:46
-    Author     : usager
+    Document   : accueil
+    Created on : 2014-10-13, 13:24:16
+    Author     : Autre compte
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,29 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>RDM - Accueil</title>
-        <link rel="stylesheet" media="screen,projection" type="text/css" href="style/accueil.css" /> 
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-        <link rel="stylesheet" href="/resources/demos/style.css">
-        <script>
-        $(function() {
-        $( "#datearrivee" ).datepicker();
-        $( "#datedepart" ).datepicker();
-        });
-        </script>
+        <title>JSP Page</title>
     </head>
-    <body>
-        <div id="main"> 
-            
-            <header> 
-                <span id = "ti"> <span id = "titre" >RDM</span> Réservation dès maintenant </span>
-                <span id = "button">
-                    <input type="submit" value = "Connexion"/>
-                    <input type="submit" value = "Publier une annonce"/>
-                </span>
-            </header>
+    <div id="main"> 
             <div id ="recherche">
                 <form action="" method="get">
                     <input type="text" name="destination" placeholder="Destination">
@@ -83,5 +63,4 @@
          
            
         </div>
-    </body>
 </html>
