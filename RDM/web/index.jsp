@@ -29,7 +29,7 @@
                 <span id = "ti"> <span id = "titre" >RDM</span> Réservation dès maintenant </span>
                 <span id = "button">
                     <input type="submit" value = "Connexion"/>
-                    <input type="submit" value = "Publier une annonce"/>
+                    <a href="./publierAnnonce.jsp"><input type="submit" value = "Publier une annonce"/></a>
                 </span>
             </header>
             <div id ="recherche">
