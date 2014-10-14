@@ -28,11 +28,24 @@
             <header> 
                 <span id = "ti"> <span id = "titre" >RDM</span> Réservation dès maintenant </span>
                 <span id = "button">
-                    <input onclick="self.location.href='?vue=vue1'" type="submit" value = "Connexion"/>
+                    <input onclick="self.location.href='?vue=vueloginHotelier'" type="submit" value = "Connexion"/>
                     <input type="submit" value = "Publier une annonce"/>
                 </span>
             </header>
-            <div id ="recherche">
+            <div id="centre">
+                <%
+                    String vue = request.getParameter("vue");
+                    if (vue != null) 
+                    {
+                        vue = vue+".jsp";
+                %>
+                <jsp:include page="<%=vue%>" />
+                <%                    
+                    }
+                    else
+                    {
+                %>
+                <div id ="recherche">
                 <form action="" method="get">
                     <input type="text" name="destination" placeholder="Destination">
                     <input type="text" id="datearrivee" placeholder="Arrivée">
@@ -80,8 +93,13 @@
                     </div> 
                 </div>
             </div>
-         
-           
+                <%
+                    }
+                %>
+            </div>
+            <div id="footer">
+                &copy; 2013 Auteur. Tous droits réservés.
+            </div>
         </div>
     </body>
 </html>
