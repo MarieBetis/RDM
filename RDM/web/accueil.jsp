@@ -1,7 +1,7 @@
 <%-- 
     Document   : accueil
     Created on : 2014-10-13, 13:24:16
-    Author     : Autre compte
+    Author     : Marie
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
