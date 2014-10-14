@@ -28,9 +28,8 @@
             <header> 
                 <span id = "ti"> <span id = "titre" >RDM</span> Réservation dès maintenant </span>
                 <span id = "button">
-                    <a href="./loginHotelier.jsp"><input type="submit" value = "Connexion de l'hôtelier"/></a>
-                    <a href="./loginConsommateur.jsp"><input type="submit" value = "Connexion du consommateur"/></a>
-                    <a href="./publierAnnonce.jsp"><input type="submit" value = "Publier une annonce"/></a>
+                    <input onclick="self.location.href='?vue=vue1'" type="submit" value = "Connexion"/>
+                    <input type="submit" value = "Publier une annonce"/>
                 </span>
             </header>
             <div id ="recherche">
