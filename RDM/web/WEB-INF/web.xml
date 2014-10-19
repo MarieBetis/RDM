@@ -8,36 +8,34 @@
     <context-param>
         <description>L'URL de la BD pour les connexions JDBC.</description>
         <param-name>urlBd</param-name>
-        <param-value>jdbc:mysql://localhost/ecole?user=root</param-value>
+        <param-value>jdbc:mysql://localhost/rdm?user=root</param-value>
     </context-param>
+    <servlet>
+        <servlet-name>login</servlet-name>
+        <servlet-class>com.rdm.servlets.Login</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>controleur</servlet-name>
         <servlet-class>com.rdm.controleur.ControleurFrontal</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>loginHotelier</servlet-name>
-        <servlet-class>com.rdm.servlets.LoginHotelier</servlet-class>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>com.rdm.servlets.Logout</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>loginConsommateur</servlet-name>
-        <servlet-class>com.rdm.servlets.LoginConsommateur</servlet-class>
-    </servlet>
+    <servlet-mapping>
+        <servlet-name>login</servlet-name>
+        <url-pattern>/signin</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>controleur</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>loginHotelier</servlet-name>
-        <url-pattern>/signinHotelier</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>loginConsommateur</servlet-name>
-        <url-pattern>/signinConsommateur</url-pattern>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/signout</url-pattern>
     </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

@@ -6,28 +6,26 @@
 
 package com.rdm.servlets;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import com.rdm.DAO.implement.MembreDAO;
+import com.rdm.modele.Membre;
+import com.rdm.util.Connexion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author David
+ * @author Autre compte
  */
-public class LoginHotelier extends HttpServlet {
+public class Login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,21 +38,49 @@ public class LoginHotelier extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        String  u = request.getParameter("username"),
+                p = request.getParameter("password");
+        if (u==null || u.trim().equalsIgnoreCase(""))
+        {
+            //Utilisateur inexistant
+            request.setAttribute("message", "Username obligatoire");
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
+            r.forward(request, response);
+            return;
+        }
+
         try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginHotelier</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginHotelier at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+            Class.forName(this.getServletContext().getInitParameter("piloteJdbc"));
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Connexion.setUrl(this.getServletContext().getInitParameter("urlBd"));
+        MembreDAO dao = new MembreDAO(Connexion.getInstance());
+        Membre membre = dao.read(u.trim());
+        
+        if (membre==null)
+        {
+            //Utilisateur inexistant
+            request.setAttribute("message", "Utilisateur "+u+" inexistant.");
+            //response.sendRedirect("login.jsp");Ne fonctionne pas correctement (ie. perd le message d'erreur).
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
+            r.forward(request, response);
+        }
+        else if (!membre.getMdp().equals(p))
+        {
+            //Mot de passe incorrect
+            request.setAttribute("message", "Mot de passe incorrect.");
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
+            r.forward(request, response);
+        }
+        else
+        {
+            //connexion OK
+            HttpSession session = request.getSession(true);
+            session.setAttribute("connecte", u);
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
+            r.forward(request, response);
         }
     }
 
