@@ -58,7 +58,7 @@
                     {
                     %>
                     
-                    <input id="onclick" type="submit" value = "Connexion"/>
+                    <input class ="b" id="onclick" type="submit" value = "Connexion"/>
                     <% }%>
                 </span>
             </header>
@@ -107,10 +107,10 @@
                     <input type="text" id="datedepart" placeholder="Depart">
                     <select>
                         <option value="un">1 voyageur</option>
-                        <option value="deux">2 voyageur</option>
-                        <option value="trois">3 voyageur</option>
-                        <option value="quatres">4 voyageur</option>
-                        <option value="cinq">5 et+ voyageur</option>
+                        <option value="deux">2 voyageurs</option>
+                        <option value="trois">3 voyageurs</option>
+                        <option value="quatres">4 voyageurs</option>
+                        <option value="cinq">5 et+ voyageurs</option>
                     </select> 
                     <input class ="b" type="submit" value="Rechercher">
                 </form> 
