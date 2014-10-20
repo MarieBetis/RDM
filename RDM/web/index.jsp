@@ -41,7 +41,7 @@
                                     "</span>    <a href=\"logout.do?action=logout\">Déconnexion</a>");
 
                     %>
-                     <%
+                  <%--    <%
                     if (request.getAttribute("message")!=null)
                     {
                         out.println("<span class=\"errorMessage\">"+request.getAttribute("message")+"</span>");
@@ -49,7 +49,7 @@
                     String  us1 = request.getParameter("username");
                     if (us1==null) us1="";
                            else us1 = us1.trim();
-                    %>
+                    %> --%>
                     
                     <input type="submit" class ="b" value = "Publier une annonce"/>
                     <%
@@ -65,7 +65,7 @@
             
             <%--                             Pop up Login               --%>
             <div id="logindiv">
-                <form class="form" method="POST" action="login.do" id="login">
+                <form class="form" method="POST"  id="login">
                     <img src="./images/fermer.png" class="img" id="cancel" height="35" width="35"/>
                     <h3>Connexion</h3>
                     <select name="typeConnection" > 
@@ -75,6 +75,12 @@
                        <%-- <option value="">Administrateur</option>  --%>
                     </select> 
                     </br>
+                   <%--  <%
+                    if (request.getAttribute("message")!=null)
+                    {
+                        out.println("<label class=\"errorMessage\">"+request.getAttribute("message")+"</label>");
+                    }
+                    %><%--  --%>
                     <label>E-mail : </label>
                     <input type="text" id="username" name = "username" placeholder="ex@ex.com"/>
                     <label>Mot de passe : </label>
@@ -203,10 +209,16 @@
                 $("#loginbtn").click(function() {
                 var name = $("#username").val();
                 var password = $("#password").val();
+                var msg = $(".errorMessage").val();
                 if (username == "" || password == ""){
                 alert("E-mail ou mot de passe invalide");
-                }else{
-                $("#logindiv").css("display", "none");
+                } else{
+                    
+                    var elementsWithClass = document.getElementsByClassName('form')
+                    elementsWithClass[0].action = "login.do";
+                //document.getElementsByClassName('form').action = "login.do";
+                //$("#logindiv").css("display", "none");
+                
                 }
                 });
             });
