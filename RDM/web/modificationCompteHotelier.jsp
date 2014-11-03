@@ -1,8 +1,17 @@
-           <%--                             Pop up Inscription de l'hÃ´telier               --%>
-            <div id="inscriptionHotelierDiv">
-                <form class="form" method="POST" action="inscription.do">
+           <%--                             Pop up modification du compte l'hôtelier               --%>
+                   <%        
+                    if (session.getAttribute("connecte")!=null)   
+                    {  
+
+                    %>
+           
+           
+           
+            <div id="formulaire">
+                <form class="form" method="POST" action="modificationHotelier.do">
                     <img src="./images/fermer.png" class="img" id="cancel" height="35" width="35"/>
-                    <h3>Inscription de l'hotelier</h3>
+                    <h3>Modification du compte de l'hôtelier</h3>
+                    <p>Entrez les nouvelles informations</p>
                     <label>E-mail : </label>
                     <input type="text" id="username" name = "username" placeholder="ex@ex.com"/>
                     <label>Mot de passe : </label>
@@ -21,10 +30,12 @@
                     <input type="text" id="province" name = "province" placeholder="Québec"/>
                     <label>Pays : </label>
                     <input type="text" id="pays" name = "pays" placeholder="Canada"/>
-                    <input type="submit" name="bOk" id="inscriptionbtn" value="S'inscrire"/>
-                    <input type="reset" id="cancel" value="Annuler"/>
-                    <input type="hidden" name="action" value="InscriptionHotelier" />
+                    <input type="submit" name="bOk" value="Modifier"/>
+                    <input type="reset" name="cancel" value="Annuler"/>
+                    <input type="hidden" name="action" value="modificationCompteHotelier" />
                 </form>
             </div>
             
-            
+              <%
+                    }
+                %> 
