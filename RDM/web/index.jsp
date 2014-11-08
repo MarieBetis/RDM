@@ -14,6 +14,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="jquery_popup.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+               
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
         <script>
@@ -22,6 +23,9 @@
         $( "#datedepart" ).datepicker();
         });
         </script>
+        
+    
+           
     </head>
     <body>
          
@@ -59,7 +63,8 @@
                     %>
                     
                     <input class ="b" id="onclick" type="submit" value = "Connexion"/>
-                    <% }%>
+                    <a href="./inscription.jsp"><input id="btnInscription" type="submit" value = "Inscription"/></a>
+               <% }%>
                 </span>
             </header>
             
@@ -93,6 +98,9 @@
             <%--                           Fin Pop up Login               --%>
             
             
+            
+            
+            
             <div id="centre">
                 <%
                     String vue = request.getParameter("vue");
@@ -108,9 +116,11 @@
                 %>
                 <div id ="recherche">
                 <form action="" method="get">
-                    <input type="text" id = "dest" name="destination" placeholder="Destination">
-                    <input type="text" id="datearrivee" placeholder="Arrivée">
-                    <input type="text" id="datedepart" placeholder="Depart">
+                  <input type="text" id = "dest" name="destination" placeholder="Destination">
+                  <input type="text" id="datearrivee" placeholder="Date d'arrivée">
+                  <input type="text" id="datedepart" placeholder="Départ">
+                
+                  
                     <select>
                         <option value="un">1 voyageur</option>
                         <option value="deux">2 voyageurs</option>
@@ -181,6 +191,9 @@
                 $("#contact #cancel").click(function() {
                     $(this).parent().parent().hide();
                 });
+                
+                
+                
             // Contact form popup send-button click event.
                 $("#send").click(function() {
                     var name = $("#name").val();
