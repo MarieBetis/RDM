@@ -1,22 +1,19 @@
 
             <div class="publication">
                 <h2>Publiez votre annonce</h2>  
-                <form method="post" action="controleur.do" enctype="multipart/form-data">
+                  <form method="post" action="controleur.do" enctype="multipart/form-data">
                     <table>
 			<tr>
-                            <td>Titre de la chambre : </td><td><input type="text" name="titreChambre"/></td>
+                            <td>Titre de la chambre : </td><td><input type="text" name="titre"/></td>
                         </tr>
                          <tr>
-                            <td>Date début : </td><td><input type="text" id="dateDebut" placeholder="Date début" /></td>
+                            <td>Date d�but : </td><td><input type="text" id="dateDebut" placeholder="Date début" name="date_debut" /></td>
                         </tr>
                         <tr>
-                            <td>Date fin : </td><td><input type="text" id="dateFin" placeholder="Date de fin" /></td>
-                        </tr> 
-                        <tr>
-                            <td>Codre de l'offre : </td><td><input type="text" name="codeOffre"/></td>
+                            <td>Date fin : </td><td><input type="text" id="dateFin" placeholder="Date de fin" name="date_fin" /></td>
                         </tr>
                         <tr>
-                            <td>Capacité d'accueil : </td><td><input type="text" name="capaciteAccueil"/></td>
+                            <td>Capacit� d'accueil : </td><td><input type="text" name="capacite"/></td>
                         </tr>
                         <tr>
                             <td>Prix : </td><td><input type="text" name="prix"/></td>
@@ -25,9 +22,10 @@
                             <td>Joindre image : </td><td><input type="file" name="file" id="file" /> </td>
                         </tr>
                          <tr>
-                            <td></td><td><input type="submit" value="Appliquer" name="boutonAppliquer"/></td>
+                            <td><input type="hidden" name="action" value="publierAnnonce" /></td><td><input type="submit" value="Appliquer" name="boutonAppliquer"/></td>
                         </tr>
                     </table>
                 <form>                
             </div> 
+  
  

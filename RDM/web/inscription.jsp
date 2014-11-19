@@ -90,15 +90,9 @@
                              <td> </td>
                                <td><input type="submit" name="bOk" id="inscriptionbtn" value="S'inscrire"/> </td>
                          </tr>
-                        
                         </table>
-                
                 </form>
             </div>
-            
- 
-
 </div>
 </body>
 </html>
-
