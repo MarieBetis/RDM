@@ -31,7 +31,7 @@ public class Moderateur{
     public String getLogin(){
         return login;
     }
-    public String motDePasse(){
+    public String getMotDePasse(){
         return motDePasse;
     }
     public void setModerateur_id(int moderateur_id){
