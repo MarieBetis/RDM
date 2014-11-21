@@ -7,7 +7,7 @@
 package com.rdm.servlets;
 
 
-import com.rdm.DAO.implement.MembreDAO;
+import com.rdm.DAO.implementation.MembreDAO;
 import com.rdm.modele.Membre;
 import com.rdm.util.Connexion;
 import java.io.IOException;
