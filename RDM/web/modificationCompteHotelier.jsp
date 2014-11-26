@@ -1,41 +1,42 @@
-           <%--                             Pop up modification du compte l'hôtelier               --%>
+           
+<%--                             Pop up modification du compte l'hôtelier              
                    <%        
                     if (session.getAttribute("connecte")!=null)   
                     {  
 
-                    %>
+                    %> --%>
            
            
            
             <div id="formulaire">
-                <form class="form" method="POST" action="modificationHotelier.do">
-                    <img src="./images/fermer.png" class="img" id="cancel" height="35" width="35"/>
-                    <h3>Modification du compte de l'hôtelier</h3>
-                    <p>Entrez les nouvelles informations</p>
-                    <label>E-mail : </label>
-                    <input type="text" id="username" name = "username" placeholder="ex@ex.com"/>
-                    <label>Mot de passe : </label>
-                    <input type="password" id="password" name = "password" placeholder="************"/>
-                    <label>Réentrez le mot de passe : </label>
-                    <input type="password" id="password2" name = "password2" placeholder="************"/>
-                    <label>Site web : </label>
-                    <input type="text" id="siteWeb" name = "siteWeb" placeholder="www.exemple.com"/>
-                    <label>Code postal : </label>
-                    <input type="text" id="codePostal" name = "codePostal" placeholder="L0L0L0"/>
-                    <label>Rue : </label>
-                    <input type="text" id="rue" name = "rue" placeholder="Liébert"/>
-                    <label>Ville : </label>
-                    <input type="text" id="ville" name = "ville" placeholder="Montréal"/>
-                    <label>Province : </label>
-                    <input type="text" id="province" name = "province" placeholder="Québec"/>
-                    <label>Pays : </label>
-                    <input type="text" id="pays" name = "pays" placeholder="Canada"/>
+                <form class="form2" method="POST" action="modificationHotelier.do">
+                    <span> <a class = "retour" href ="index.jsp?afficherPage=profilHotelier">&larr; Retour </a> </span>
+                    <h2>Modification du compte</h2>
+                    <table>
+                    <tr>
+                            <td><label>Nom : </label></td>
+                            <td><input type="text" id="nom" name = "nom" placeholder="Jacques"/></td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr> 
+                        <td><label>E-mail : </label></td>
+                       <td> <input type="email" id="username" name = "email" placeholder="ex@ex.com"/></td>
+                    </tr>
+                    <tr>                            
+                        <td><label>Mot de passe : </label></td>
+                       <td> <input type="password" id="password" name = "password" placeholder="************"/></td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                       <td><label>Confirmez : </label></td>
+                        <td> <input type="password" id="password2" name = "password2" placeholder="************"/></td>
+                    </tr>
+                    <tr>
+                        <td><label>Site web : </label></td>
+                       <td> <input type="text" id="siteWeb" name = "siteWeb" placeholder="www.exemple.com"/></td>
+                    </tr>
+                    </table>
                     <input type="submit" name="bOk" value="Modifier"/>
-                    <input type="reset" name="cancel" value="Annuler"/>
                     <input type="hidden" name="action" value="modificationCompteHotelier" />
                 </form>
             </div>
             
-              <%
+           <%--    <%
                     }
-                %> 
+                %> --%>
