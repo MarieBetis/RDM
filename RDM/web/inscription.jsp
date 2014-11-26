@@ -5,16 +5,16 @@
 <head>
 <title>RDM : Inscription</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link href="./style/inscription.css" rel="stylesheet" type="text/css" />
+<!-- <link href="./style/inscription.css" rel="stylesheet" type="text/css" /> -->
 <script language="javascript" src="./js/jquery-1.9.1.min.js">
 </script>
 <script language="javascript">
 	$(document).ready(function() {         
-                 $('#h').click(function() { 
+                 $('#hotelier').click(function() { 
                     $('.particulier').hide();
 		});
                 
-                $('#c').click(function() { 
+                $('#consommmateur').click(function() { 
                     $('.particulier').show()  ;
 		});
          });
@@ -23,76 +23,78 @@
 </head>
 <body>
 <div id="main">
-    <div id="inscription">
-                <form class="form" method="POST" action="inscription.do">
-                   <h3>Inscription</h3>
-                    <select name="typeConnection" > 
-                            <option value="">Type de Connexion</option>
-                            <option value="" id="c" >Consommateur</option>
-                            <option value="" id="h" >Hôtelier</option>
+    	
+                <form class="form2" method="POST" action="Inscription.do">
+                    <span> <a class = "retour" href ="index.jsp?afficherPage=accueil">&larr; Retour </a> </span>
+                   <h2>Inscription</h2>
+                    <table>
+                        <%
+                    if (request.getAttribute("message")!=null)
+                    {
+                        out.println("<span class=\"errorMessage\">"+request.getAttribute("message")+"</span>");
+                    }
+                    %>
+                    <select id="type"  name="typeCompte" > 
+                            <option value="* Type de compte *">* Type de compte *</option>
+                            <option value="Consommateur" id="consommateur" >Consommateur</option>
+                            <option value="Hôtelier" id="hotelier" >Hôtelier</option>
                        <%-- <option value="">Administrateur</option>  --%>
                     </select> 
-                    <table>
-                        <tr>
-                            <td><label class='particulier'>Nom : </label></td>
-                            <td><input type="text" id="nom" name = "nom" placeholder="Jacques" class='particulier'/></td>
-                        </tr>
-                         <tr>
-                             <td><label class='particulier'>Prénom : </label></td>
-                             <td><input type="text" id="prenom" name = "prenom" placeholder="David" class='particulier'/></td>
-                         </tr>
-                        <tr>
-                             <td><label class='particulier'>Sexe : </label> </td>
-                            <td> <input type="text" id="sexe" name = "sexe" placeholder="Masculin" class='particulier'/> </td>
+                    
+                        <tr> 
+                             <td class='particulier'> 
+                            <select id="titreC" name="titre" > 
+                                <option value="mr">Mr</option>
+                                <option value="mme" >Mme</option>
+                            </select> 
+                            </td> 
                         </tr>
                         <tr>
+                            <td><label>Nom : </label></td>
+                            <td><input type="text" id="nom" name = "nom" placeholder="Jacques"/></td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <!--<td><label >Nom de l'entreprise: </label></td>
+                            <td><input type="text" id="nom" name = "nomEntreprise" placeholder="Jacques"/></td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> -->
+                            <td><label class='particulier'>Prénom : </label></td>
+                             <td><input type="text" id="prenom" name = "prenom" placeholder="David" class='particulier'/></td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        </tr>
+                        <tr> 
                             <td><label>E-mail : </label></td>
-                           <td> <input type="text" id="username" name = "username" placeholder="ex@ex.com"/></td>
+                           <td> <input type="email" id="username" name = "email" placeholder="ex@ex.com"/></td>
                         </tr>
                         <tr>                            
                             <td><label>Mot de passe : </label></td>
-                           <td> <input type="password" id="password" name = "password" placeholder="************"/></td>
-                        </tr>
-                         <tr>    
-                             <td><label>Réentrez le mot de passe : </label></td>
+                           <td> <input type="password" id="password" name = "password" placeholder="************"/></td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                           <td><label>Confirmez : </label></td>
                             <td> <input type="password" id="password2" name = "password2" placeholder="************"/></td>
-                        </tr> 
+                        </tr>
                         <tr>
                             <td><label>Site web : </label></td>
                            <td> <input type="text" id="siteWeb" name = "siteWeb" placeholder="www.exemple.com"/></td>
                         </tr>
-                         <tr>   
-                             <td><label>Code postal : </label></td>
-                            <td><input type="text" id="codePostal" name = "codePostal" placeholder="L0L0L0"/></td>
-                        </tr>
                           <tr> 
-                               <td><label>Rue : </label </td>
-                                 <td><input type="text" id="rue" name = "rue" placeholder="Liébert"/> </td>
+                                <td><label class='particulier' >Rue : </label </td>
+                                <td><input type="text" id="rue" name = "rue" placeholder="Liébert" class='particulier'/> </td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td><label class='particulier'>Ville : </label></td>
+                                <td><input type="text" id="ville" name = "ville" placeholder="Montréal" class='particulier'/></td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td><label class='particulier'>Code postal : </label></td>
+                                <td><input type="text" id="codePostal" name = "codePostal" placeholder="L0L0L0" class='particulier'/></td>
                           </tr> 
-                         <tr> 
-                             <td><label>Ville : </label></td>
-                            <td><input type="text" id="ville" name = "ville" placeholder="Montréal"/></td>
-                         </tr> 
                         <tr> 
-                            <td><label>Province : </label></td>
-                            <td><input type="text" id="province" name = "province" placeholder="Québec"/></td>
-                        </tr> 
-                        <tr> 
-                            <td><label>Pays : </label></td>
-                            <td> <input type="text" id="pays" name = "pays" placeholder="Canada"/></td>
+                            <td><label class='particulier'>Province : </label></td>
+                            <td><input type="text" id="province" name = "province" placeholder="Québec" class='particulier'/></td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td><label class='particulier'>Pays : </label></td>
+                            <td> <input type="text" id="pays" name = "pays" placeholder="Canada" class='particulier'/></td>
                         </tr> 
                          
                           <tr>
-                             <td><input type="hidden" name="action" value="inscription" /> </td>
-                             <td><input type="reset" id="annuler" value="Annuler"/></td>
+                             
+                             <td><input type="submit" name="bOk" id="inscriptionbtn" value="S'inscrire"/> </td>
+                             <%-- <td><input type="reset" id="annuler" value="Annuler"/></td> --%>
                           </tr>
-                        <tr>
-                             <td> </td>
-                               <td><input type="submit" name="bOk" id="inscriptionbtn" value="S'inscrire"/> </td>
-                         </tr>
                         </table>
+                    <input type="hidden" name="action" value="inscription" />
                 </form>
-            </div>
+         
 </div>
 </body>
 </html>

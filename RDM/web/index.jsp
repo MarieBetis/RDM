@@ -19,8 +19,8 @@
         <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
         <script>
         $(function() {
-        $( "#datearrivee" ).datepicker();
-        $( "#datedepart" ).datepicker();
+        $( ".datearrivee" ).datepicker();
+        $( ".datedepart" ).datepicker();
         });
         </script>
         
@@ -32,7 +32,7 @@
         <div id="main"> 
             <header> 
                 <span id = "ti"> 
-                    <span id = "titre" > <img src="images/1.png" height="45" width="45">RDM</span> 
+                    <span id = "titre" > <a class = "retour" href ="index.jsp?afficherPage=accueil"><img src="images/1.png" height="45" width="45"/>RDM</a></span> 
                     <span> Réservation dès maintenant </span>
                 </span>
                
@@ -63,10 +63,32 @@
                     %>
                     
                     <input class ="b" id="onclick" type="submit" value = "Connexion"/>
-                    <a href="./inscription.jsp"><input id="btnInscription" type="submit" value = "Inscription"/></a>
-               <% }%>
+                    <a href="index.jsp?afficherPage=inscription"><input id="btnInscription" type="submit" value = "Inscription"/></a>
+                    <a href="index.jsp?afficherPage=profilHotelier">Profil hotelier</a>
+                    <a href="index.jsp?afficherPage=profilParticulier">Profil particulier</a>
+                    <a href="index.jsp?afficherPage=publierAnnonce">Publier une annonce</a>
+               
+                    <% }%>
                 </span>
             </header>
+            
+            <div id ="recherche">
+                <form action="" method="get">
+                  <input type="text" id = "dest" name="destination" placeholder="Destination">
+                  <input type="text" class ="datearrivee" placeholder="Date d'arrivée">
+                  <input type="text" class ="datedepart" placeholder="Départ">
+                
+                  
+                    <select>
+                        <option value="un">1 voyageur</option>
+                        <option value="deux">2 voyageurs</option>
+                        <option value="trois">3 voyageurs</option>
+                        <option value="quatres">4 voyageurs</option>
+                        <option value="cinq">5 et+ voyageurs</option>
+                    </select> 
+                    <input class ="b" type="submit" value="Rechercher">
+                </form> 
+            </div>
             
             <%--                             Pop up Login               --%>
             <div id="logindiv">
@@ -99,80 +121,94 @@
             
             
             
-            
-            
             <div id="centre">
                 <%
-                    String vue = request.getParameter("vue");
-                    if (vue != null) 
-                    {
-                        vue = vue+".jsp";
-                %>
-                <jsp:include page="<%=vue%>" />
-                <%                    
-                    }
-                    else
-                    {
-                %>
-                <div id ="recherche">
-                <form action="" method="get">
-                  <input type="text" id = "dest" name="destination" placeholder="Destination">
-                  <input type="text" id="datearrivee" placeholder="Date d'arrivée">
-                  <input type="text" id="datedepart" placeholder="Départ">
-                
-                  
-                    <select>
-                        <option value="un">1 voyageur</option>
-                        <option value="deux">2 voyageurs</option>
-                        <option value="trois">3 voyageurs</option>
-                        <option value="quatres">4 voyageurs</option>
-                        <option value="cinq">5 et+ voyageurs</option>
-                    </select> 
-                    <input class ="b" type="submit" value="Rechercher">
-                </form> 
-            </div>
-            <div id="annonces" align="center">
-                <h2>Annonces disponibles</h2>
-                <div classe ="blocs">
-                    <div classe = "annonces">
-                        <figure class="dessin">
-                            <img src="./images/chambre.jpg" alt="" height="200" width="200"/>
-                            <figcaption>Légende associée</figcaption>
-                         </figure>
-                        <figure class="dessin">
-                             <img src="./images/chamb.jpg" alt="" height="200" width="200"/>
-                            <figcaption>Légende associée</figcaption>
-                         </figure>
-                        <figure class="dessin">
-                             <img src="./images/ch.jpg" alt="" height="200" width="200"/>
-                            <figcaption>Légende associée</figcaption>
-                         </figure>
-                    </div>
-                    <div classe = "annonces">
-                        <figure class="dessin2">
-                            <img src="./images/chamb.jpg" alt="" height="200" width="200"/>
-                            <figcaption>Légende associée</figcaption>
-                         </figure>
-                        <figure class="dessin2">
-                             <img src="./images/chambre.jpg" alt="" height="200" width="200"/>
-                            <figcaption>Légende associée</figcaption>
-                         </figure>
-                        <figure class="dessin2">
-                             <img src="./images/cham.jpg" alt="" height="200" width="200"/>
-                            <figcaption>Légende associée</figcaption>
-                         </figure>
-                    </div> 
-                </div>
-            </div>
-                <%
-                    }
-                %>
+                        if (request.getParameter("afficherPage")==null)
+                            { 
+                                %>
+                                   <jsp:include page="accueil.jsp" />
+                               <% 
+                            }
+                        else 
+                            {
+                            String afficherPage = (String)request.getParameter("afficherPage");
+                             if ("accueil".equals(afficherPage))
+                            { 
+                                %>
+                                   <jsp:include page="accueil.jsp" />
+                               <% 
+                            }                      
+                            if ("inscription".equals(afficherPage))
+                              {
+                                %>
+                                <jsp:include page="inscription.jsp" />
+                                <%
+                              }
+                            if ("publierAnnonce".equals(afficherPage))
+                              {
+                                %>
+                                <jsp:include page="publierAnnonce.jsp" />
+                                <%
+                              }
+                            if ("afficherUneAnnonce".equals(afficherPage))
+                              {
+                                %>
+                                <jsp:include page="afficherUneAnnonce.jsp" />
+                                <%
+                            }
+                            
+                            if ("pageReservation".equals(afficherPage))
+                              {
+                                %>
+                                <jsp:include page="pageReservation.jsp" />
+                                <%
+                            }
+                            
+                            if ("profilHotelier".equals(afficherPage))
+                              {
+                                %>
+                                <jsp:include page="profilHotelier.jsp" />
+                                <%
+                            }
+                            if ("profilParticulier".equals(afficherPage))
+                              {
+                                %>
+                                <jsp:include page="profilParticulier.jsp" />
+                                <%
+                            }
+                             if ("modificationCompteConsommateur".equals(afficherPage))
+                              {
+                                %>
+                                <jsp:include page="modificationCompteConsommateur.jsp" />
+                                <%
+                            }
+                             if ("modificationCompteHotelier".equals(afficherPage))
+                              {
+                                %>
+                                <jsp:include page="modificationCompteHotelier.jsp" />
+                                <%
+                            }
+                             if ("modificationAnnonce".equals(afficherPage))
+                              {
+                                %>
+                                <jsp:include page="modificationAnnonce.jsp" />
+                                <%
+                            }
+                             if ("modificationReservation".equals(afficherPage))
+                              {
+                                %>
+                                <jsp:include page="modificationReservation.jsp" />
+                                <%
+                            }
+                            
+                           }
+                     %>
             </div>
             <div id="footer">
                 &copy; 2014 David Bruno-Renaud Beauchemin-Mohamed Bouguedoura-Marie Betis. Tous droits réservés.
             </div>
         </div>
-            
+            <!-- Script pour pop up -->
             <script type="text/javascript">
             $(document).ready(function() {
             //setTimeout(popup, 3000);
