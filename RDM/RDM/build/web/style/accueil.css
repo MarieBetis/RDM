@@ -1,0 +1,94 @@
++/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2014-10-07, 14:15:32
+    Author     : usager
+*/
+
+body {
+    font:0.8em/1.5 "arial", sans-serif;
+    margin: 20px;
+}
+
+#titre {
+    border : 1px solid black;
+    font-size: 25px;
+}
+
+.dessin{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display:inline-block;
+   // background-color: grey;    
+    background-image:url("../images/interrogation.png");
+    background-repeat: no-repeat;
+    margin: 50px;
+}
+.dessin2{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display:inline-block;
+    background-image:url("../images/interrogation.png");
+    background-repeat: no-repeat;
+     margin: 50px;
+}
+
+#annonces {
+     border : 1px solid black;
+     //padding-left: 150px;
+     
+}
+
+.annonces {
+    border : 1px solid green;
+    margin: 20px;
+}
+
+.blocs {
+     border : 1px solid red;
+}
+
+#ti {
+    float : left;
+}
+
+#button {
+    float : right;
+}
+
+header {
+    height: 30px;
+}
+
+#recherche {
+    border: 2px solid black;
+    padding-bottom: 200px;
+    padding-top: 200px;
+    background-image:url("../images/burning-nature-hd-wallpaper-3402321.jpg");
+    background-repeat: no-repeat;
+    background-size: 1500px;
+}
+
+h2 {
+   //background-color: powderblue;
+   border-bottom: 1px solid grey;
+   text-align: center;
+   font-size: 35px;
+   margin-top: -5px;
+}
+
+form { 
+margin: 0 auto; 
+width:690px;
+}
+
+form input{
+    height: 40px;
+    margin: -5px;
+}
+

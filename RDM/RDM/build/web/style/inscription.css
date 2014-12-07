@@ -1,0 +1,48 @@
+/* 
+    Document   : Connexion
+    Created on : 2014-10-13, 17:58:29
+    Author     : Usager
+   
+*/
+
+@charset "utf-8";
+/* CSS Document */
+
+
+body
+{
+	background-color:#E0E0E0; 
+	
+
+
+}
+
+#main
+{
+
+	margin-top: 250px;
+	
+}
+
+
+#inscription
+{	
+
+	width:400px;
+	background-color : #9999CC;	
+	text-align : center;
+	border : solid 1px black;
+	margin: auto;	
+	padding:20px;
+		background-image : url('../images/voyage3.jpg');
+	background-repeat : no-repeat;
+	background-position : top left;
+	font-size: 20px;
+}
+
+
+.errorMessage 
+{
+color : red;
+}
+
