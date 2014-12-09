@@ -479,6 +479,43 @@ figcaption{
     font-variant: small-caps;
 }
 
+.lienannonce
+{
+    text-decoration: none;
+    font-size: 13px;
+    color : black;
+}
+
+.lienannonce:hover {
+    
+    color: grey;
+    font-size: 14px;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
 fieldset td {
     font-weight: bold;
+}
+
+.validMessage {
+    border : 1px solid black;
+    text-align: center;
+    color : white;
+    background-color:  mediumseagreen;
+    margin : auto; 
+    display: block;
+    font-variant: small-caps;
+    font-size: 15px;
+}
+
+.errorMessage {
+    border : 1px solid black;
+    text-align: center;
+    color : white;
+    background-color:  red;
+    margin : auto; 
+    display: block;
+    //font-variant: small-caps;
+    font-size: 15px;
 }
