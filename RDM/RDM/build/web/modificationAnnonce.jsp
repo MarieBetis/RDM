@@ -12,20 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <script type="text/javascript">
-            //<![CDATA[
-
-            function valider(){
-             
-                alert("Modification effectuÃ©e avec succÃ¨s");
-                
-                return false;
-              }
-            
-
-            //]]>
-        </script>
+        <title>Modifiez votre annonce</title>
     </head>
     <body>
         
